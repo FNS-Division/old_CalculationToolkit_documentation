@@ -2,6 +2,10 @@
 
 This repository contains the documentation for the Calculation Tools, which is available in two versions: Old and Modified.
 
+**Old tool** is the original and unaltered tool. This is in its original state and has not been modified or updated
+
+**Modified tool** is the updated version of the old tool. This version has edits made, package and version updates, and frontend edits
+
 ## Documentation Overview
 
 - **Old Version**: Covers the setup, prerequisites, and usage of the old version of the Calculation Tools.
@@ -10,7 +14,7 @@ This repository contains the documentation for the Calculation Tools, which is a
 
 ## Access the Toolkits
 
-- **[Old Toolkit](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools)**
+- **[Old Toolkit](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=%2F&version=GBmain&_a=contents)**
 - **[Modified Toolkit](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=%2F&version=GBmodified&_a=contents)**
 
 ## How to Use This Documentation
