@@ -5,6 +5,12 @@ There are 2 sides to this setup:
 * **Client side setup** 
 * **Server side setup** 
 
+
+> GETTING STARTED :
+
+**1. git clone https://ITUINT@dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools**
+
+
 ---
 
 
@@ -12,6 +18,16 @@ There are 2 sides to this setup:
 ## Client-Side Setup
 
 Follow these steps to set up the client side of the project:
+
+
+**Summary**
+
+1. Navigate to project root.
+2. Install required packages: `npm install && bower install`
+3. Start application server: `gulp serve`
+
+
+*For this to load successfully , ensure the following:*
 
 ### 1. Switch to Node.js Version 10
 
@@ -78,6 +94,21 @@ Once everything is set up, start the development server using Gulp:
 ## Server-Side Setup
 
 Setting up the server side of the project involves configuring PHP and Python and running the necessary commands to start the local server.
+
+
+**Summary** 
+
+Required: Docker, Rabbitmq Recommended PHP version: *5.6.25+* Recommended NodeJS version: *7.9.0+* with NPM *4.2.0+*
+
+Setting up PHP API server:
+
+1. Navigate to **server** directory.
+2. Install required packages: `php composer.phar install`
+3. Start local server: `php composer.phar start`
+
+
+  For this to load successfully , ensure the following:
+
 
 ### 1. Access the Server Directory
 
