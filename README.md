@@ -10,7 +10,7 @@ This repository contains the documentation for the Calculation Tools, which is a
 
 ## Access the Toolkits
 
-- **[Old Toolkit](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools)**
+- **[Old Toolkit](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=%2F&version=GBmain&_a=contents)**
 - **[Modified Toolkit](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=%2F&version=GBmodified&_a=contents)**
 
 ## How to Use This Documentation
