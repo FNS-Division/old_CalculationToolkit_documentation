@@ -1,1 +1,34 @@
-site_name: My Docs
+site_name: Calculation Tools Documentation
+theme:
+  name: 'material'
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Old Version Prerequisites: old_version/prerequisites.md
+      - Modified Version Prerequisites: modified_version/prerequisites.md
+      - Old Version Setup: old_version/setup.md
+      - Modified Version Setup: modified_version/setup.md
+  - Code Structure:
+      - Overview: code_structure/overview.md
+      - Old Version: code_structure/old_version.md
+      - Modified Version: code_structure/modified_version.md
+  - Deployment and CI/CD:
+      - General Instructions: deployment/general.md
+      - Azure DevOps Setup: deployment/azure_devops.md
+      - AWS Deployment & Pipeline: deployment/aws_pipeline.md
+  - Usage Examples:
+      - Old Version: usage/old_version.md
+      - Modified Version: usage/modified_version.md
+  - Contribution Guidelines:
+      - Guidelines: contribution/guidelines.md
+  - Detailed Report on Proposed Improvements: improvements/report.md
+  - Development Documentation:
+      - Technical Architecture: development/architecture.md
+      - Codebase Structure: development/codebase_structure.md
+  - Cloud Deployment Guide: cloud/deployment_guide.md
+  - Maintenance Documentation:
+      - Maintenance Plan: maintenance/plan.md
+      - Troubleshooting Guide: maintenance/troubleshooting.md
+  - Appendix: appendix/glossary.md
+  - Changelog: changelog.md
