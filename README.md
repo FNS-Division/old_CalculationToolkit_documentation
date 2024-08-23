@@ -30,20 +30,20 @@ Begin by cloning the repository to your local machine:
 **2. Navigate to the Project Directory**
 Move into the project directory:
  
-cd calculation-tools_documentation
+**cd calculation-tools_documentation**
 
 **3. Install Dependencies**
 Ensure you have Python and pip installed on your machine. Then, install MkDocs and the Material theme:
 
  
  
-pip install mkdocs mkdocs-material
+**pip install mkdocs mkdocs-material**
 
 **4. Preview the Documentation Locally**
 To preview the documentation locally, run the following command:
 
  
-mkdocs serve
+**mkdocs serve**
 
 This will start a local development server. Open your browser and navigate to http://127.0.0.1:8000/ to view the documentation.
 
@@ -63,8 +63,8 @@ Create a New Markdown File:
 
 Navigate to the docs directory and create a new markdown file for your page:
  
-cd docs
-touch new_page.md
+**cd docs
+touch new_page.md**
 
 **Edit the mkdocs.yml File:**
 
@@ -90,12 +90,12 @@ Open the file in your preferred text editor and make your changes.
 
 **Preview the Changes:**
 
-Save the file and run mkdocs serve to preview the changes.
+Save the file and run **mkdocs serve ** to preview the changes.
 
 **Deploying the Documentation**
 To build the static site for deployment, use:
  
-mkdocs build
+**mkdocs build**
 
 This will generate a site/ directory containing all the static files needed for deployment. You can deploy these files to any static site hosting service, including GitHub Pages.
 
