@@ -30,6 +30,7 @@ Begin by cloning the repository to your local machine:
 **2. Navigate to the Project Directory**
 Move into the project directory:
 
+```bash
 cd calculation-tools_documentation
 
 **3. Install Dependencies**
