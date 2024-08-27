@@ -18,7 +18,7 @@ nav:
       - Old Version: code_structure/old_version.md
       - Modified Version: code_structure/modified_version.md
 
-  - Deployment & CI/CD:
+  -  CI/CD Pipelines:
       - General Instructions: deployment/general.md
       - Azure DevOps Setup: deployment/azure_devops.md
       - AWS Deployment & Pipeline: deployment/aws_pipeline.md
