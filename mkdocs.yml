@@ -1,7 +1,14 @@
-site_name: Calculation Tools Documentation
+site_name: "Calculation Tools Documentation"
+site_url: "https://FNS-Division.github.io/calculation-tools_documentation/"
+repo_url: "https://github.com/FNS-Division/calculation-tools_documentation"
 theme:
   name: 'material'
-
+  # Optional configuration for the Material theme
+  features:
+    - navigation.instant
+    - search.highlight
+    - toc.integrate  # Integrates Table of Contents in the sidebar
+  
 nav:
   - Home: index.md
 
@@ -16,27 +23,23 @@ nav:
 
   - Code Structure:
       - Overview: code_structure/overview.md
- 
-             
 
   - Cloud Deployment:
       - Requirements: cloud/deployment_guide.md
       - Deploying on Azure: cloud/azure_deployment_guide.md
       - Deploying on AWS: cloud/aws_deployment_guide.md
 
-  -  CI/CD Pipelines :
+  - CI/CD Pipelines:
       - General Instructions: deployment/general.md
       - Azure DevOps Setup: deployment/azure_devops.md
       - AWS Deployment & Pipeline: deployment/aws_pipeline.md
 
   - Usage:
       - Usage Examples: usage/old_version.md
- 
 
   - Maintenance & Troubleshooting:
       - Maintenance Plan: maintenance/plan.md
-      - Troubleshooting:  maintenance/troubleshooting_guide.md
-      
+      - Troubleshooting: maintenance/troubleshooting_guide.md
 
   - Contribution:
       - Guidelines: contribution/guidelines.md
@@ -45,3 +48,18 @@ nav:
       - Detailed Report on Proposed Improvements: improvements/report.md
 
   - Changelog: changelog.md
+
+# Footer options, showing version or GitHub links
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FNS-Division/calculation-tools_documentation
+  copyright: "© 2024 FNS-Division. All rights reserved."
+
+markdown_extensions:
+  - toc:
+      permalink: true  # Adds anchors to the Table of Contents for better navigation
+
+# Enable search plugin (default)
+plugins:
+  - search
