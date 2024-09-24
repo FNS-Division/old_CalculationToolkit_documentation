@@ -40,6 +40,7 @@ nav:
   - Maintenance & Troubleshooting:
       - Maintenance Plan: maintenance/plan.md
       - Troubleshooting: maintenance/troubleshooting_guide.md
+      - How to translate: maintenance/translating_guide.md
 
   - Contribution:
       - Guidelines: contribution/guidelines.md
