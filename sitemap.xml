@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://FNS-Division.github.io/calculation-tools_documentation/contribution/policies/</loc>
+         <lastmod>2024-10-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/deployment/aws_pipeline/</loc>
          <lastmod>2024-10-09</lastmod>
          <changefreq>daily</changefreq>
