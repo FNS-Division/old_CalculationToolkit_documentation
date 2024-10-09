@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#frontend-troubleshooting-client-folder" class="md-skip">
+        <a href="#calculation-tools-troubleshooting-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -851,6 +851,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -878,6 +880,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1252,114 +1256,96 @@
   
 
 
-  <h1>Troubleshooting</h1>
-
+<h1 id="calculation-tools-troubleshooting-guide">Calculation Tools Troubleshooting Guide<a class="headerlink" href="#calculation-tools-troubleshooting-guide" title="Permanent link">&para;</a></h1>
 <p>This guide provides steps for troubleshooting both the frontend and backend of the Calculation Tools project.</p>
 <hr />
-<h4 id="frontend-troubleshooting-client-folder"><strong>Frontend Troubleshooting (Client Folder)</strong><a class="headerlink" href="#frontend-troubleshooting-client-folder" title="Permanent link">&para;</a></h4>
-<p>The frontend is based on  <strong>Angular v1</strong> . Follow these steps to troubleshoot common issues:</p>
-<h5 id="1-check-nodejs-and-npm-versions">1. <strong>Check Node.js and NPM Versions</strong><a class="headerlink" href="#1-check-nodejs-and-npm-versions" title="Permanent link">&para;</a></h5>
+<h2 id="frontend-troubleshooting-client-folder"><strong>Frontend Troubleshooting (Client Folder)</strong><a class="headerlink" href="#frontend-troubleshooting-client-folder" title="Permanent link">&para;</a></h2>
+<p>The frontend is based on <strong>Angular v1</strong>. Follow these steps to troubleshoot common issues:</p>
+<h3 id="1-check-nodejs-and-npm-versions">1. <strong>Check Node.js and NPM Versions</strong><a class="headerlink" href="#1-check-nodejs-and-npm-versions" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Ensure you are using the correct Node.js and npm versions required for Angular v1.</li>
-<li>
-<p>You can check the versions by running:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">node -v
-  npm -v
-  </code></div></div></pre></p>
-</li>
-<li>
-<p>Ensure you're using <strong>Node.js v10.x.x</strong>  ( on old version )or  <strong>v20.x.x</strong> ,  ( on modified version)  )which are compatible with Angular v1.</p>
-</li>
+<li>You can check the versions by running:</li>
 </ul>
-<h5 id="2-reinstall-node-modules">2. <strong>Reinstall Node Modules</strong><a class="headerlink" href="#2-reinstall-node-modules" title="Permanent link">&para;</a></h5>
+<pre><code>node -v
+npm -v
+</code></pre>
 <ul>
-<li>Sometimes, dependency issues may arise. Try removing and reinstalling the <code>node_modules</code> folder:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">rm -rf node_modules
-  npm install
-  </code></div></div></pre>
-</li>
+<li>Ensure you're using <strong>Node.js v10.x.x</strong> (on old version) or <strong>v20.x.x</strong> (on modified version), which are compatible with Angular v1.</li>
 </ul>
-<h5 id="3-check-for-console-errors">3. <strong>Check for Console Errors</strong><a class="headerlink" href="#3-check-for-console-errors" title="Permanent link">&para;</a></h5>
+<h3 id="2-reinstall-node-modules">2. <strong>Reinstall Node Modules</strong><a class="headerlink" href="#2-reinstall-node-modules" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Open your browser's Developer Tools (usually by pressing  <strong>F12</strong> ) and look for errors in the <strong>Console</strong> tab. These will give clues about missing dependencies or syntax errors.</li>
+<li>Sometimes, dependency issues may arise. Try removing and reinstalling the <code>node_modules</code> folder:</li>
 </ul>
-<h5 id="4-run-in-development-mode">4. <strong>Run in Development Mode</strong><a class="headerlink" href="#4-run-in-development-mode" title="Permanent link">&para;</a></h5>
+<pre><code>rm -rf node_modules
+npm install
+</code></pre>
+<h3 id="3-check-for-console-errors">3. <strong>Check for Console Errors</strong><a class="headerlink" href="#3-check-for-console-errors" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use <code>gulp serve</code> to run the project in development mode and identify any errors during the build process:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">gulp serve
-  </code></div></div></pre>
-</li>
+<li>Open your browser's Developer Tools (usually by pressing <strong>F12</strong>) and look for errors in the <strong>Console</strong> tab. These will give clues about missing dependencies or syntax errors.</li>
 </ul>
-<h5 id="5-troubleshoot-gulp-issues">5. <strong>Troubleshoot Gulp Issues</strong><a class="headerlink" href="#5-troubleshoot-gulp-issues" title="Permanent link">&para;</a></h5>
+<h3 id="4-run-in-development-mode">4. <strong>Run in Development Mode</strong><a class="headerlink" href="#4-run-in-development-mode" title="Permanent link">&para;</a></h3>
 <ul>
-<li>If there are issues with Gulp tasks, ensure you have the correct versions installed globally:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">npm install --global gulp-cli
-  gulp --version
-  </code></div></div></pre>
-</li>
+<li>Use <code>gulp serve</code> to run the project in development mode and identify any errors during the build process:</li>
 </ul>
-<h5 id="6-dependency-conflicts">6. <strong>Dependency Conflicts</strong><a class="headerlink" href="#6-dependency-conflicts" title="Permanent link">&para;</a></h5>
+<pre><code>gulp serve
+</code></pre>
+<h3 id="5-troubleshoot-gulp-issues">5. <strong>Troubleshoot Gulp Issues</strong><a class="headerlink" href="#5-troubleshoot-gulp-issues" title="Permanent link">&para;</a></h3>
 <ul>
-<li>If there are package conflicts, try resolving them by running:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">npm audit fix
-  </code></div></div></pre>
-</li>
+<li>If there are issues with Gulp tasks, ensure you have the correct versions installed globally:</li>
 </ul>
-<h5 id="7-cross-origin-resource-sharing-cors">7. <strong>Cross-Origin Resource Sharing (CORS)</strong><a class="headerlink" href="#7-cross-origin-resource-sharing-cors" title="Permanent link">&para;</a></h5>
+<pre><code>npm install --global gulp-cli
+gulp --version
+</code></pre>
+<h3 id="6-dependency-conflicts">6. <strong>Dependency Conflicts</strong><a class="headerlink" href="#6-dependency-conflicts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If there are package conflicts, try resolving them by running:</li>
+</ul>
+<pre><code>npm audit fix
+</code></pre>
+<h3 id="7-cross-origin-resource-sharing-cors">7. <strong>Cross-Origin Resource Sharing (CORS)</strong><a class="headerlink" href="#7-cross-origin-resource-sharing-cors" title="Permanent link">&para;</a></h3>
 <ul>
 <li>If you're encountering CORS errors (especially during API calls), ensure that the backend server is configured to allow requests from the frontend domain.</li>
 </ul>
-<h4 id="backend-troubleshooting-server-directory"><strong>Backend Troubleshooting (Server Directory)</strong><a class="headerlink" href="#backend-troubleshooting-server-directory" title="Permanent link">&para;</a></h4>
-<p>The backend is based on the  <strong>PHP Slim Framework</strong> . Follow these steps to troubleshoot the backend:</p>
-<h5 id="1-check-php-version">1. <strong>Check PHP Version</strong><a class="headerlink" href="#1-check-php-version" title="Permanent link">&para;</a></h5>
+<h2 id="backend-troubleshooting-server-directory"><strong>Backend Troubleshooting (Server Directory)</strong><a class="headerlink" href="#backend-troubleshooting-server-directory" title="Permanent link">&para;</a></h2>
+<p>The backend is based on the <strong>PHP Slim Framework</strong>. Follow these steps to troubleshoot the backend:</p>
+<h3 id="1-check-php-version">1. <strong>Check PHP Version</strong><a class="headerlink" href="#1-check-php-version" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Ensure that the correct PHP version is installed. PHP Slim v3 is compatible with PHP 7.4 x. You can check the version by running:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">php -v
-  </code></div></div></pre>
-</li>
+<li>Ensure that the correct PHP version is installed. PHP Slim v3 is compatible with PHP 7.4.x. You can check the version by running:</li>
 </ul>
-<h5 id="2-verify-dependencies">2. <strong>Verify Dependencies</strong><a class="headerlink" href="#2-verify-dependencies" title="Permanent link">&para;</a></h5>
+<pre><code>php -v
+</code></pre>
+<h3 id="2-verify-dependencies">2. <strong>Verify Dependencies</strong><a class="headerlink" href="#2-verify-dependencies" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Ensure all required PHP dependencies are installed using Composer:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">composer install
-  </code></div></div></pre>
-</li>
+<li>Ensure all required PHP dependencies are installed using Composer:</li>
 </ul>
-<h5 id="3-check-apachenginx-configuration">3. <strong>Check Apache/Nginx Configuration</strong><a class="headerlink" href="#3-check-apachenginx-configuration" title="Permanent link">&para;</a></h5>
+<pre><code>composer install
+</code></pre>
+<h3 id="3-check-apachenginx-configuration">3. <strong>Check Apache/Nginx Configuration</strong><a class="headerlink" href="#3-check-apachenginx-configuration" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Ensure that your Apache or Nginx server is correctly configured to route requests to the Slim framework. The <code>public</code> folder should be the root directory.</li>
 <li>Check your <strong>virtual host</strong> configuration for proper routing.</li>
 </ul>
-<h5 id="4-check-logs">4. <strong>Check Logs</strong><a class="headerlink" href="#4-check-logs" title="Permanent link">&para;</a></h5>
+<h3 id="4-check-logs">4. <strong>Check Logs</strong><a class="headerlink" href="#4-check-logs" title="Permanent link">&para;</a></h3>
 <ul>
 <li>PHP errors will often be logged in the <strong>error_log</strong> file on your server. Check this file for any issues with routing, database connections, or PHP errors.</li>
 </ul>
-<h5 id="5-test-api-endpoints">5. <strong>Test API Endpoints</strong><a class="headerlink" href="#5-test-api-endpoints" title="Permanent link">&para;</a></h5>
+<h3 id="5-test-api-endpoints">5. <strong>Test API Endpoints</strong><a class="headerlink" href="#5-test-api-endpoints" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Use tools like <strong>Postman</strong> or <strong>cURL</strong> to manually test the API endpoints. Make sure the expected responses are being returned, and check for any errors.</li>
-<li>Example using cURL:
-<br />
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">curl -X GET http://localhost/api/endpoint
-  </code></div></div></pre>
-</li>
+<li>Example using cURL:</li>
 </ul>
-<h5 id="6-database-connection">6. <strong>Database Connection</strong><a class="headerlink" href="#6-database-connection" title="Permanent link">&para;</a></h5>
+<pre><code>curl -X GET http://localhost/api/endpoint
+</code></pre>
+<h3 id="6-database-connection">6. <strong>Database Connection</strong><a class="headerlink" href="#6-database-connection" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Ensure the backend is correctly connecting to your database. Check the **( .env ) or (server/app/settings.php)  ** file for the correct credentials (host, username, password, database).</li>
+<li>Ensure the backend is correctly connecting to your database. Check the <strong>(.env) or (server/app/settings.php)</strong> file for the correct credentials (host, username, password, database).</li>
 <li>Use MySQL CLI or phpMyAdmin to verify database connectivity.</li>
 </ul>
-<h5 id="7-cache-issues">7. <strong>Cache Issues</strong><a class="headerlink" href="#7-cache-issues" title="Permanent link">&para;</a></h5>
+<h3 id="7-cache-issues">7. <strong>Cache Issues</strong><a class="headerlink" href="#7-cache-issues" title="Permanent link">&para;</a></h3>
 <ul>
 <li>If the backend seems unresponsive or stale, try clearing the PHP and server-side cache.</li>
 </ul>
-<h5 id="8-check-cors-configuration">8. <strong>Check CORS Configuration</strong><a class="headerlink" href="#8-check-cors-configuration" title="Permanent link">&para;</a></h5>
+<h3 id="8-check-cors-configuration">8. <strong>Check CORS Configuration</strong><a class="headerlink" href="#8-check-cors-configuration" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Make sure that CORS is properly configured on the backend to allow API requests from the frontend application.</li>
 </ul>

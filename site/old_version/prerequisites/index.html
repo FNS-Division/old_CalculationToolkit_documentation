@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-nodejs-and-gulp" class="md-skip">
+        <a href="#setup-and-run-the-old-version-of-the-calculation-tools" class="md-skip">
           Skip to content
         </a>
       
@@ -319,6 +319,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -346,6 +348,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1161,107 +1165,68 @@
   
 
 
-  <h1>Old Version Prerequisites</h1>
-
+<h1 id="setup-and-run-the-old-version-of-the-calculation-tools">Setup and Run the Old Version of the Calculation Tools<a class="headerlink" href="#setup-and-run-the-old-version-of-the-calculation-tools" title="Permanent link">&para;</a></h1>
 <p>To set up and run the old version of the Calculation Tools, ensure that your environment is properly configured with the following software and tools:</p>
-<p>Works for Linux, windows, Mac</p>
+<p>Works for Linux, Windows, Mac</p>
 <h2 id="1-nodejs-and-gulp">1. Node.js and Gulp<a class="headerlink" href="#1-nodejs-and-gulp" title="Permanent link">&para;</a></h2>
 <h3 id="install-nvm-node-version-manager">Install NVM (Node Version Manager)<a class="headerlink" href="#install-nvm-node-version-manager" title="Permanent link">&para;</a></h3>
 <p>Node Version Manager (NVM) allows you to install and manage multiple versions of Node.js on your system. This is particularly useful for this project as it requires Node.js version 10.24.0.</p>
 <ol>
 <li>
-<p><strong>Install NVM</strong> :</p>
+<p><strong>Install NVM</strong>:</p>
 </li>
 <li>
 <p>Follow the installation instructions for NVM specific to your operating system:</p>
+<ul>
+<li><strong>Windows</strong>: Download and install from the <a href="https://github.com/coreybutler/nvm-windows">NVM for Windows GitHub repository</a>.</li>
+<li><strong>macOS/Linux</strong>: Install using the following command in your terminal:</li>
+</ul>
+<p><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh |</code>
+2. <strong>Install Node.js version 10 using NVM</strong>:</p>
 </li>
 <li>
-<p><strong>Windows</strong> : Download and install from the <a href="https://github.com/coreybutler/nvm-windows">NVM for Windows GitHub repository</a>.</p>
+<p>Once NVM is installed, use it to install Node.js version 10.24.0:</p>
+<p><code>nvm install 10.24.0</code>
+3. <strong>Verify available Node.js versions</strong>:</p>
 </li>
-<li><strong>macOS/Linux</strong> : Install using the following command in your terminal:</li>
+<li>
+<p>List all installed versions of Node.js using:</p>
+<p><code>nvm list</code>
+4. <strong>Switch to Node.js version 10</strong>:</p>
+</li>
+<li>
+<p>Set Node.js version 10.24.0 as the active version:</p>
+<p><code>nvm use 10</code>
+5. <strong>Confirm the active Node.js version</strong>:</p>
+</li>
+<li>
+<p>Verify that Node.js version 10.24.0 is active:</p>
+<p><code>node -v</code>
+   * Ensure the output shows <code>v10.24.0</code>.
+6. <strong>Install Gulp</strong>:</p>
+</li>
+<li>
+<p>Gulp is required for automating tasks and managing workflows. Install it:</p>
+<p><code>npm install --global gulp-cli@2.3.0
+ npm install gulp@4.0.2 --save-dev</code></p>
+</li>
 </ol>
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-    </code></div></div></pre>
-
-<ol>
-<li>
-<p><strong>Install Node.js version 10 using NVM</strong> :</p>
-</li>
-<li>
-<p>Once NVM is installed, use it to install Node.js version 10.24.0:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">nvm install 10.24.0
-  </code></div></div></pre>
-</p>
-</li>
-<li>
-<p><strong>Verify available Node.js versions</strong> :</p>
-</li>
-<li>
-<p>List all installed versions of Node.js using:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">nvm list
-  </code></div></div></pre>
-</p>
-</li>
-<li>
-<p><strong>Switch to Node.js version 10</strong> :</p>
-</li>
-<li>
-<p>Set Node.js version 10.24.0 as the active version:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">nvm use 10
-  </code></div></div></pre>
-</p>
-</li>
-<li>
-<p><strong>Confirm the active Node.js version</strong> :</p>
-</li>
-<li>
-<p>Verify that Node.js version 10.24.0 is active:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">node -v
-  </code></div></div></pre></p>
-</li>
-<li>
-<p>Ensure the output shows <code>v10.24.0</code>.</p>
-</li>
-<li>
-<p><strong>Install Gulp</strong> :</p>
-</li>
-<li>
-<p>Gulp is required for automating tasks and managing workflows. Install it</p>
-</li>
-<li></li>
-</ol>
-<pre><code>npm install --global gulp-cli@2.3.0npm  
-npm install gulp@4.0.2 --save-dev
-
-</code></pre>
 <h2 id="2-python">2. Python<a class="headerlink" href="#2-python" title="Permanent link">&para;</a></h2>
 <h3 id="python-version-27">Python Version: 2.7<a class="headerlink" href="#python-version-27" title="Permanent link">&para;</a></h3>
 <p>For this project, Python 2.7 is required. Ensure that it is installed and configured on your system.</p>
 <ol>
 <li>
-<p><strong>Install Python 2.7</strong> :</p>
+<p><strong>Install Python 2.7</strong>:</p>
 </li>
 <li>
 <p>Download and install Python 2.7 from the <a href="https://www.python.org/downloads/release/python-2718/">Python Releases for Windows</a> page.</p>
 </li>
 <li>
-<p>On macOS/Linux, use your package manager:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">sudo apt-get install python2.7
-  </code></div></div></pre></p>
-</li>
-<li>
-<p>Verify the installation:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">python --version
-  </code></div></div></pre></p>
-</li>
-<li>
-<p>Ensure the output shows <code>Python 2.7.x</code>.</p>
+<p>On macOS/Linux, use your package manager:</p>
+<p><code>sudo apt-get install python2.7</code>
+   * Verify the installation:</p>
+<p><code>python --version</code>
+   * Ensure the output shows <code>Python 2.7.x</code>.</p>
 </li>
 </ol>
 <h2 id="3-php">3. PHP<a class="headerlink" href="#3-php" title="Permanent link">&para;</a></h2>
@@ -1269,37 +1234,25 @@ npm install gulp@4.0.2 --save-dev
 <p>PHP is required for various backend functionalities in the old version of the tools. Ensure you have PHP version 7.3 or higher installed.</p>
 <ol>
 <li>
-<p><strong>Install PHP</strong> :</p>
+<p><strong>Install PHP</strong>:</p>
 </li>
 <li>
 <p>Download and install PHP from the <a href="https://www.php.net/downloads">official PHP website</a>.</p>
 </li>
 <li>
-<p>Alternatively, use a package manager:</p>
+<p>Alternatively, use a package manager:<strong>( Reccomended Approach )</strong></p>
+<ul>
+<li><strong>Windows</strong>: Use a WAMP or XAMPP stack that includes PHP 7.3 or above.</li>
+<li><strong>macOS/Linux</strong>: Use Homebrew (macOS) or apt-get (Linux):</li>
+</ul>
+<p><code>brew install php@7.3</code>
+ <code>sudo apt-get install php7.3</code>
+2. <strong>Verify PHP Installation</strong>:</p>
 </li>
 <li>
-<p><strong>Windows</strong> : Use a WAMP or XAMPP stack that includes PHP 7.3 or above.</p>
-</li>
-<li><strong>macOS/Linux</strong> : Use Homebrew (macOS) or apt-get (Linux):</li>
-</ol>
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">brew install php@7.3
-    </code></div></div></pre>
-
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">sudo apt-get install php7.3
-    </code></div></div></pre>
-
-<ol>
-<li>
-<p><strong>Verify PHP Installation</strong> :</p>
-</li>
-<li>
-<p>Confirm the PHP version:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">php -v
-  </code></div></div></pre></p>
-</li>
-<li>
-<p>Ensure the output shows <code>PHP 7.3.x</code> or higher.</p>
+<p>Confirm the PHP version:</p>
+<p><code>php -v</code>
+   * Ensure the output shows <code>PHP 7.3.x</code> or higher.</p>
 </li>
 </ol>
 

@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-prerequisites" class="md-skip">
+        <a href="#this-guide-provides-instructions-for-deploying-the-dockerized-calculation-tools-project-to-aws" class="md-skip">
           Skip to content
         </a>
       
@@ -599,6 +599,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -626,6 +628,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1228,21 +1232,19 @@
   
 
 
-  <h1>Deploying on AWS</h1>
-
-<p>This guide provides instructions for deploying the Dockerized Calculation Tools project to AWS.</p>
+<h1 id="this-guide-provides-instructions-for-deploying-the-dockerized-calculation-tools-project-to-aws">This guide provides instructions for deploying the Dockerized Calculation Tools project to AWS.<a class="headerlink" href="#this-guide-provides-instructions-for-deploying-the-dockerized-calculation-tools-project-to-aws" title="Permanent link">&para;</a></h1>
 <h2 id="1-prerequisites">1. Prerequisites<a class="headerlink" href="#1-prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before deploying to AWS, ensure you have the following:</p>
 <ul>
-<li><strong>AWS Account</strong> : An AWS account with appropriate permissions.</li>
-<li><strong>AWS CLI</strong> : Install and configure the AWS CLI on your local machine.</li>
-<li><strong>Docker Installed</strong> : Ensure Docker is installed and running on your local machine.</li>
+<li><strong>AWS Account</strong>: An AWS account with appropriate permissions.</li>
+<li><strong>AWS CLI</strong>: Install and configure the AWS CLI on your local machine.</li>
+<li><strong>Docker Installed</strong>: Ensure Docker is installed and running on your local machine.</li>
 </ul>
 <h2 id="2-pushing-docker-images-to-aws-ecr">2. Pushing Docker Images to AWS ECR<a class="headerlink" href="#2-pushing-docker-images-to-aws-ecr" title="Permanent link">&para;</a></h2>
 <h3 id="21-set-up-amazon-ecr">2.1 Set Up Amazon ECR<a class="headerlink" href="#21-set-up-amazon-ecr" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Create an ECR Repository</strong> :</p>
+<p><strong>Create an ECR Repository</strong>:</p>
 </li>
 <li>
 <p>Navigate to the Amazon ECR console.</p>
@@ -1252,49 +1254,41 @@
 <h3 id="22-authenticate-and-push-docker-images">2.2 Authenticate and Push Docker Images<a class="headerlink" href="#22-authenticate-and-push-docker-images" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Authenticate Docker to ECR</strong> :</p>
+<p><strong>Authenticate Docker to ECR</strong>:</p>
 </li>
 <li>
-<p>Run the following command to authenticate Docker with ECR:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
-  </code></div></div></pre>
-</p>
+<p>Run the following command to authenticate Docker with ECR:</p>
+<p><code>aws ecr get-login-password --region &lt;region&gt; | docker login --username AWS --password-stdin &lt;aws_account_id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com</code></p>
 </li>
 <li>
-<p><strong>Tag and Push Your Docker Image</strong> :</p>
+<p><strong>Tag and Push Your Docker Image</strong>:</p>
 </li>
 <li>
-<p>Tag the Docker image for your project:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">docker tag calculationtools_api-backend <aws_account_id>.dkr.ecr.<region>.amazonaws.com/calculation-tools-repo:latest
-  </code></div></div></pre></p>
+<p>Tag the Docker image for your project:</p>
+<p><code>docker tag calculationtools_api-backend &lt;aws_account_id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/calculation-tools-repo:latest</code></p>
 </li>
 <li>
-<p>Push the Docker image to the ECR repository:
-<br />
-<pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/calculation-tools-repo:latest
-  </code></div></div></pre>
-</p>
+<p>Push the Docker image to the ECR repository:</p>
+<p><code>docker push &lt;aws_account_id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/calculation-tools-repo:latest</code></p>
 </li>
 </ol>
 <h2 id="3-deploying-docker-containers-on-aws">3. Deploying Docker Containers on AWS<a class="headerlink" href="#3-deploying-docker-containers-on-aws" title="Permanent link">&para;</a></h2>
 <h3 id="31-using-amazon-ecs">3.1 Using Amazon ECS<a class="headerlink" href="#31-using-amazon-ecs" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Create an ECS Cluster</strong> :</p>
+<p><strong>Create an ECS Cluster</strong>:</p>
 </li>
 <li>
 <p>Go to the Amazon ECS console and create a new cluster.</p>
 </li>
 <li>
-<p><strong>Define a Task Definition</strong> :</p>
+<p><strong>Define a Task Definition</strong>:</p>
 </li>
 <li>
 <p>Create a new task definition specifying the container image from ECR, along with CPU, memory, and networking configurations.</p>
 </li>
 <li>
-<p><strong>Run the Task</strong> :</p>
+<p><strong>Run the Task</strong>:</p>
 </li>
 <li>
 <p>Deploy the container by running the task in the ECS cluster.</p>
@@ -1303,13 +1297,13 @@
 <h3 id="32-auto-scaling-and-load-balancing">3.2 Auto-Scaling and Load Balancing<a class="headerlink" href="#32-auto-scaling-and-load-balancing" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Configure Auto Scaling</strong> :</p>
+<p><strong>Configure Auto Scaling</strong>:</p>
 </li>
 <li>
 <p>Set up auto-scaling for your ECS service based on CPU and memory usage.</p>
 </li>
 <li>
-<p><strong>Set Up a Load Balancer</strong> :</p>
+<p><strong>Set Up a Load Balancer</strong>:</p>
 </li>
 <li>
 <p>Use an Application Load Balancer (ALB) to distribute traffic across multiple containers.</p>
@@ -1329,8 +1323,8 @@
 <h2 id="5-maintenance-and-updates">5. Maintenance and Updates<a class="headerlink" href="#5-maintenance-and-updates" title="Permanent link">&para;</a></h2>
 <h3 id="51-updating-containers">5.1 Updating Containers<a class="headerlink" href="#51-updating-containers" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Rebuild and Push</strong> : When updates are made, rebuild the Docker image and push it to ECR.</li>
-<li><strong>Rolling Updates</strong> : Deploy updates using ECS with minimal downtime.</li>
+<li><strong>Rebuild and Push</strong>: When updates are made, rebuild the Docker image and push it to ECR.</li>
+<li><strong>Rolling Updates</strong>: Deploy updates using ECS with minimal downtime.</li>
 </ul>
 <h3 id="52-backup-and-recovery">5.2 Backup and Recovery<a class="headerlink" href="#52-backup-and-recovery" title="Permanent link">&para;</a></h3>
 <ul>
