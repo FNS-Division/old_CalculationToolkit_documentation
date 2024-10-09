@@ -1,4 +1,4 @@
-This section outlines recommendations for improving the Calculation Tools project, focusing on updating the tech stack and enhancing overall performance and maintainability.
+thaThis section outlines recommendations for improving the Calculation Tools project, focusing on updating the tech stack and enhancing overall performance and maintainability.
 
 ---
 
@@ -29,6 +29,10 @@ The current frontend is built using  **Angular v1** , which is outdated. Here ar
 * **Lazy Loading** : Split the application into smaller modules and use lazy loading to load components only when required.
 * **AOT (Ahead-of-Time) Compilation** : Use Angular’s AOT feature to compile templates at build time, which will improve runtime performance.
 
+##### **1.5 One dashboard to access all modes**
+
+* **T**he current structure is that one user should create an account for School, country and global . This process is tedious. The recommended approach is to have one account as a user, where you can access the different app modes . So s a user, once i register and login , i can use one account, to run school, country and global modes.
+
 ---
 
 #### **2. Backend Suggestions and Improvements**
@@ -48,7 +52,6 @@ The current backend is built with the  **Slim Framework** . Here are some sugges
 * Set up a new Laravel project and start migrating existing Slim-based routes and logic.
 * Use Laravel’s **migration tools** to move databases and schemas.
 * Slowly transition from Slim to Laravel by setting up backward compatibility for API requests.
-
 
 ##### **2.2 Implement Unit Testing**
 

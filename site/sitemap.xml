@@ -2,117 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/changelog/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/appendix/glossary/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/cloud/aws_deployment_guide/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/cloud/azure_deployment_guide/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/cloud/deployment_guide/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/code_structure/modified_version/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/code_structure/old_version/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/code_structure/overview/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/contribution/guidelines/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/deployment/aws_pipeline/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/deployment/azure_devops/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/deployment/general/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/development/architecture/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/development/codebase_structure/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/improvements/report/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/maintenance/plan/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://FNS-Division.github.io/calculation-tools_documentation/maintenance/translating_guide/</loc>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/maintenance/troubleshooting_guide/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/modified_version/prerequisites/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/modified_version/setup/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/old_version/prerequisites/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/old_version/setup/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://FNS-Division.github.io/calculation-tools_documentation/usage/old_version/</loc>
-         <lastmod>2024-09-17</lastmod>
+         <lastmod>2024-09-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
