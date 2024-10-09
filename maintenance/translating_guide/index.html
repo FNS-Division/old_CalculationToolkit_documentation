@@ -872,6 +872,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -900,6 +902,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -908,11 +912,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-translate" class="md-nav__link">
+  <a href="#file-1-language-picker" class="md-nav__link">
     <span class="md-ellipsis">
-      How to translate
+      File 1: Language Picker
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="File 1: Language Picker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instructions:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-2-translation-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      File 2: Translation Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File 2: Translation Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instructions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instructions:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1096,42 +1166,52 @@
   
 
 
-  <h1>How to translate</h1>
-
-<h4 id="how-to-translate">How to translate<a class="headerlink" href="#how-to-translate" title="Permanent link">&para;</a></h4>
-<p>There are 2 files you need to add or remove languages</p>
-<p><strong>File 1 :</strong></p>
-<p><strong>Client&gt; Components &gt; Language-picker &gt; Language-picker.html</strong></p>
-<p>In this file , you add or remove the language abbreviation. This helps provide the dropdown for the user/admin to select</p>
-<!-- Edit line 4 and 13 to add new languages on dropdown -->
-
-<p>&lt;span ng-if="type === 'navbar'</p>
-<p>" ng-repeat="lang in ['ru', 'en', 'es']"</p>
-<p>ng-show="currentLanguage !== lang"&gt;
-    <code>&lt;a href="" ng-click="switchLanguage(lang)"&gt;</code>{{'languages.'+lang | translate}}<code>&lt;/a&gt;</code></p>
-<div ng-if="type === 'settings'" class="btn-group">
-    <button class="btn btn-default"
-
-    ng-repeat="lang in ['ru', 'en', 'es']"
-
-    ng-if="currentLanguage !== lang" ng-click="switchLanguage(lang)">{{'languages.'+lang | translate}}`</button>`
-
-</div>
-
-<p><strong>File 2 :</strong></p>
-<p><strong>Assets &gt; i18n</strong></p>
+<h1 id="how-to-translate">How to Translate<a class="headerlink" href="#how-to-translate" title="Permanent link">&para;</a></h1>
+<p>To add or remove languages in the system, you need to update two key files:</p>
+<h2 id="file-1-language-picker">File 1: Language Picker<a class="headerlink" href="#file-1-language-picker" title="Permanent link">&para;</a></h2>
+<p><strong>Path:</strong> <code>Client &gt; Components &gt; Language-picker &gt; Language-picker.html</code></p>
+<p>This file controls the language dropdown available to users or admins for selection.</p>
+<h3 id="instructions">Instructions:<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h3>
 <ul>
-<li>This folder contains the variables needed to translate. It has been grouped into folders, each containing the language.
-  Currently, we have En - english, Es - Spanish , Ru - Russian</li>
-<li>
-<p>To delete , delete the folder language
-  To add, i suggest you duplicate the En folder first , then rename it to the language you wish to translate to ,
-  then edit all the strings in each file and do the string translation</p>
-</li>
-<li>
-<p>For example...you can open account.json in es folder, and check also  en folder to see how transaction has been done.</p>
-</li>
-<li>translate all the strings in all the files .</li>
+<li>Add or remove language abbreviations in this file to update the dropdown list.</li>
+<li>Edit lines 4 and 13 to include new languages in the dropdown.</li>
+</ul>
+<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<pre><code class="language-html">&lt;span ng-if=&quot;type === 'navbar'&quot;
+    ng-repeat=&quot;lang in ['ru', 'en', 'es']&quot;
+    ng-show=&quot;currentLanguage !== lang&quot;&gt;
+    &lt;a href=&quot;&quot; ng-click=&quot;switchLanguage(lang)&quot;&gt;{{'languages.'+lang | translate}}&lt;/a&gt;
+&lt;/span&gt;
+
+&lt;div ng-if=&quot;type === 'settings'&quot; class=&quot;btn-group&quot;&gt;
+    &lt;button class=&quot;btn btn-default&quot;
+        ng-repeat=&quot;lang in ['ru', 'en', 'es']&quot;
+        ng-if=&quot;currentLanguage !== lang&quot; 
+        ng-click=&quot;switchLanguage(lang)&quot;&gt;
+        {{'languages.'+lang | translate}}
+    &lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>In the example above, <code>'ru'</code>, <code>'en'</code>, and <code>'es'</code> represent Russian, English, and Spanish, respectively. To add a new language, such as French (<code>'fr'</code>), add it to the list: <code>['ru', 'en', 'es', 'fr']</code>.</li>
+</ul>
+<h2 id="file-2-translation-files">File 2: Translation Files<a class="headerlink" href="#file-2-translation-files" title="Permanent link">&para;</a></h2>
+<p><strong>Path:</strong> <code>Assets &gt; i18n</code></p>
+<p>This folder contains the language variables used for translations. Each language has its own folder with corresponding translation files.</p>
+<h3 id="instructions_1">Instructions:<a class="headerlink" href="#instructions_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To <strong>add a language</strong>, duplicate the <code>en</code> (English) folder, rename it to the desired language code (e.g., <code>fr</code> for French), and translate all strings inside each file.</li>
+<li>To <strong>remove a language</strong>, delete the folder for that specific language.</li>
+</ul>
+<h3 id="example_1">Example:<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Open <code>account.json</code> in the <code>es</code> (Spanish) folder and compare it with the <code>en</code> folder to see how translations are structured.</li>
+<li>Translate each string in every file within the new language folder.</li>
+</ul>
+<h3 id="notes">Notes:<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ensure consistency in the naming of language codes throughout the application.</li>
+<li>Double-check all translations to maintain accuracy and clarity.</li>
 </ul>
 
 
