@@ -2,78 +2,73 @@
 
 This section details the Azure DevOps pipeline setup for the Calculation Tools. The setup works for both the old and modified versions of the project.
 
-### Starter Pipeline Configuration
+This setup assumes you only want to setup a pipeline between github repository and AzureDevops
 
-Below is the Azure DevOps pipeline configuration used for the Calculation Tools project. This configuration builds Docker images, handles authentication with AWS, and pushes the Docker images to AWS ECR.
+**Quick references :**
 
-###  Pipeline.yaml code
+ [GITHUB &amp; AZURE pipeline connection ( Video tutorial )](https://www.youtube.com/watch?v=AE4Q4A0ZVwA)
 
+[AZURE pipeline VS CODE extension ](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines)
 
-```
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+## Prerequisites
 
-trigger:
-- main
+Before starting, ensure you have:
 
-pool:
-  vmImage: ubuntu-latest
+1. **Azure DevOps Account**: For setting up the pipeline and managing CI/CD.
+2. **GitHub Repository**: Where your project and configuration files are hosted.
+3. **Docker**: Installed locally or on the build machine.
 
-steps:
-- task: DockerCompose@1
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerComposeFile: 'docker-compose.yml'
-    action: 'Build services'
-- task: AzureCLI@2
-  inputs:
-    addSpnToEnvironment: true
-    azureSubscription: 'ADO-ConnectivityToolkit-AWS' # service connection name
-    scriptType: bash
-    scriptLocation: inlineScript
-    inlineScript: |
-      # Retrieve the ID_TOKEN using 'ADO-ConnectivityToolkit-AWS' service connection to Azure App and set it as WEB_IDENTITY_TOKEN to be used in step 2
-      echo "##vso[task.setvariable variable=WEB_IDENTITY_TOKEN]${idToken}"
-- task: AWSShellScript@1
-  displayName: 'second-step-after-Azure-Cli'
-  inputs:
-    regionName: 'eu-central-1'
-    scriptType: inline
-    inlineScript: |
-      # assume the role using with web identity
-      CREDS=$( aws sts assume-role-with-web-identity --role-arn "arn:aws:iam::238974323615:role/ado-ADO-ConnectivityToolkit-AWS-Role" --role-session-name "ADO-ConnectivityToolkit-AWS-PIPELINE" --web-identity-token "${WEB_IDENTITY_TOKEN}" --duration-seconds 3600 );
-      export AWS_ACCESS_KEY_ID=$(echo $CREDS | jq -r '.Credentials''.AccessKeyId');
-      export AWS_SECRET_ACCESS_KEY=$(echo $CREDS | jq -r '.Credentials''.SecretAccessKey');
-      export AWS_SESSION_TOKEN=$(echo $CREDS | jq -r '.Credentials''.SessionToken');
-      echo "##vso[task.setvariable variable=AWS_ACCESS_KEY_ID]${AWS_ACCESS_KEY_ID}";
-      echo "##vso[task.setvariable variable=AWS_SECRET_ACCESS_KEY]${AWS_SECRET_ACCESS_KEY}";
-      echo "##vso[task.setvariable variable=AWS_SESSION_TOKEN]${AWS_SESSION_TOKEN}";
-- task: AWSShellScript@1
-  displayName: 'ECR'
-  inputs:
-    regionName: 'eu-central-1'
-    scriptType: inline
-    inlineScript: |
-      aws ecr list-images --repository-name connectivitytools --region eu-central-1
-      aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com
-      docker tag calculationtools_api-backend 238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools:giga-test-ado
-      docker push 238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools:giga-test-ado
+## Step 1: Access Your Azure DevOps Repository
 
-```
+1. **Visit the Repository**: Navigate to your repository on Azure DevOps:
+   [Azure DevOps Repository: Calculation Tools](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools).
+2. **Ensure Pipeline Files Are in the Root Directory**:
 
+   - The `azure-pipelines.yml` and `docker-compose.yml` files should be in the root of the repository.
+   - Ensure that your project structure is correctly aligned so Azure DevOps can detect the files for automated builds.
 
-### Key Components
+## Step 2: Azure DevOps Pipeline Setup
 
-* **Trigger** : The pipeline is triggered by changes to the `main` branch.
-* **Build Services** : Docker Compose is used to build the services defined in the `docker-compose.yml` file.
-* **Azure CLI** : The Azure CLI task authenticates with Azure using a service connection.
-* **AWS Shell Script** : AWS commands are executed to assume roles and push Docker images to ECR.
+1. **Go to Pipelines**:
 
-### Setting Up the Pipeline
+   - On your Azure DevOps project dashboard, go to **Pipelines** > **New Pipeline**.
+2. **Select GitHub Repository**:
 
-1. **Create a New Pipeline** : In your Azure DevOps project, go to Pipelines and create a new pipeline.
-2. **Connect to Your Repository** : Choose your Git repository where the code resides.
-3. **Configure the YAML** : Copy and paste the YAML configuration provided above.
-4. **Save and Run** : Save the pipeline and trigger a run to ensure it works as expected.
+   - Choose **GitHub** as the source repository.
+   - If you have already connected Azure DevOps to GitHub, select your repository (`calculation-tools`) from the list.
+3. **Detect `azure-pipelines.yml`**:
+
+   - Azure DevOps will automatically detect the `azure-pipelines.yml` file in your repository root.
+   - This file contains the necessary steps to build and push Docker images based on the configuration provided.
+
+## Step 3: Review Your `azure-pipelines.yml`
+
+The `azure-pipelines.yml` file is already configured as you provided, and it will handle the automation of the following:
+
+- **Docker Image Building**: Builds the Docker images using your `docker-compose.yml` file.
+- **Environment Setup**: Sets up AWS environment variables required for authentication (assuming AWS is part of the environment).
+
+## Step 4: Review Your `docker-compose.yml`
+
+The `docker-compose.yml` file you shared is also structured to define the services in your Docker container environment.
+
+- **Services**:
+  - `mysql`: Runs a MySQL database service.
+  - `nginx`: Runs an NGINX web server.
+  - `api-frontend2` and `api-backend`: Configures the frontend and backend API services.
+  - `rabbitmq`: Configures the RabbitMQ messaging service.
+
+## Step 5: Run the Pipeline
+
+1. **Save and Run**:
+
+   - After setting up the pipeline, Azure DevOps will automatically trigger the pipeline when changes are made to the repository (specifically the `main` branch).
+   - You can manually run the pipeline by navigating to **Pipelines** in Azure DevOps and clicking **Run Pipeline**.
+2. **Monitor Progress**:
+
+   - You can monitor the pipeline execution in real-time on the Azure DevOps dashboard.
+   - Logs will be available for each step, showing the build and deployment stages of your pipeline.
+
+## Conclusion
+
+By following these steps, you’ve now successfully connected your GitHub repository to Azure DevOps and set up a CI/CD pipeline using your `azure-pipelines.yml` and `docker-compose.yml` files. Depending on the setup, Each time you push new changes to the `main or modified` branch, the pipeline will automatically build and deploy your services using Docker.
