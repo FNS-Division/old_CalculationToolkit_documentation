@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-resources-used" class="md-skip">
+        <a href="#prerequisites" class="md-skip">
           Skip to content
         </a>
       
@@ -740,27 +740,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aws-resources-used" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      AWS Resources Used
+      Prerequisites
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-process" class="md-nav__link">
+  <a href="#step-1-create-aws-iam-role-for-azure-devops" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment Process
+      Step 1: Create AWS IAM Role for Azure DevOps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-steps" class="md-nav__link">
+  <a href="#step-2-set-up-azure-devops-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      Detailed Steps
+      Step 2: Set Up Azure DevOps Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-push-the-pipeline-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Push the Pipeline to GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-run-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Run the Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-verify-in-aws-ecr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Verify in AWS ECR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -1117,106 +1153,173 @@
   <h1>AWS Deployment & Pipeline</h1>
 
 <p>This section provides details on deploying the Calculation Tools to AWS using the pipeline configured in Azure DevOps.</p>
-<h3 id="aws-resources-used">AWS Resources Used<a class="headerlink" href="#aws-resources-used" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>ECR (Elastic Container Registry)</strong> : Used to store Docker images.</li>
-<li><strong>IAM Roles</strong> : Used to manage permissions and access between Azure DevOps and AWS.</li>
-<li><strong>EC2 Instances or ECS</strong> : Depending on your deployment architecture, these services can be used to run the Docker containers.</li>
-</ul>
-<h3 id="deployment-process">Deployment Process<a class="headerlink" href="#deployment-process" title="Permanent link">&para;</a></h3>
+<p>This setup assumes you have AWS Setup, AzureDevops Setup,  and a repository ( Github repository or azure repository)</p>
+<p><strong>Quick references :</strong></p>
+<p><a href="https://ituint.sharepoint.com/:w:/r/sites/ConnectivityModelling-Internship/_layouts/15/Doc.aspx?sourcedoc=%7B05EDF5A0-768B-475E-9DCC-A40C6623B153%7D&amp;file=Calculationtools%20AWS%20Deployment%20Guide.docx&amp;action=default&amp;mobileredirect=true">Old calculation toolkit deployment via AWS CLI  Documentation </a></p>
+<p><a href="https://www.youtube.com/watch?v=Vywmy5FFzoM">Calculation Tools to AWS using the pipeline configured in Azure DevOps. ( VIDEO DEMO) )</a></p>
+<p><a href="https://youtu.be/biYVW1TMYAU?t=373">Setting up development pipeline between github and AWS (VIDEO DEMO )</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools">VS CODE Extension to assist with pipeline deployment to AWS </a></p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before starting, ensure you have the following:</p>
 <ol>
-<li><strong>Docker Image Build</strong> : The Docker image for the application is built using the Azure DevOps pipeline.</li>
-<li><strong>Authentication</strong> : The pipeline uses IAM roles and identity tokens to authenticate with AWS and assume the necessary permissions.</li>
-<li><strong>Push to ECR</strong> : The Docker image is tagged and pushed to AWS ECR.</li>
-<li><strong>Deploy to ECS or EC2</strong> : Once in ECR, the image can be deployed to an ECS cluster or directly to EC2 instances.</li>
+<li><strong>Azure DevOps Account</strong>: For setting up pipelines and service connections.</li>
+<li><strong>AWS Account</strong>: With permissions to access ECR and IAM roles for authentication.</li>
+<li><strong>Docker</strong>: Installed locally or in the build environment.</li>
+<li><strong>AWS CLI</strong>: Installed and configured for AWS access.</li>
 </ol>
-<h3 id="detailed-steps">Detailed Steps<a class="headerlink" href="#detailed-steps" title="Permanent link">&para;</a></h3>
-<p><strong>Build the Docker Image</strong> :</p>
-<ul>
-<li>The Docker Compose task in the pipeline builds the image as per the instructions in <code>docker-compose.yml</code>.</li>
+<h2 id="step-1-create-aws-iam-role-for-azure-devops">Step 1: Create AWS IAM Role for Azure DevOps<a class="headerlink" href="#step-1-create-aws-iam-role-for-azure-devops" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Create an IAM User</strong> in AWS:</p>
+</li>
+<li>
+<p>Go to the <strong>AWS Management Console</strong> and navigate to <strong>IAM</strong>.</p>
+</li>
+<li>Click <strong>Users</strong> and create a new user (e.g., <code>azure-devops-user</code>).</li>
+<li>Select <strong>Programmatic Access</strong>.</li>
+<li>Attach the following permissions:<ul>
+<li><strong>AmazonS3FullAccess</strong> (or any other necessary permissions for your project).</li>
 </ul>
-<p><strong>docker-compose.yml</strong> </p>
-<pre><code>version: '2'
+</li>
+<li>Save the <strong>Access Key</strong> and <strong>Secret Access Key</strong>. You’ll need these later.</li>
+<li>
+<p><strong>Create a Role for Web Identity Federation</strong>:</p>
+</li>
+<li>
+<p>Navigate to <strong>IAM Roles</strong> in AWS and create a new role for Web Identity.</p>
+</li>
+<li>Attach the necessary permissions (e.g., <strong>AmazonS3FullAccess</strong>).</li>
+<li>Save the <strong>Role ARN</strong> for later.</li>
+</ol>
+<h2 id="step-2-set-up-azure-devops-pipeline">Step 2: Set Up Azure DevOps Pipeline<a class="headerlink" href="#step-2-set-up-azure-devops-pipeline" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Create a Service Connection in Azure DevOps</strong>:</p>
+</li>
+<li>
+<p>Navigate to your project in <strong>Azure DevOps</strong>.</p>
+</li>
+<li>Go to <strong>Project Settings</strong> &gt; <strong>Service Connections</strong>.</li>
+<li>Click <strong>New Service Connection</strong> and choose <strong>AWS</strong>.</li>
+<li>Provide the <strong>AWS Access Key</strong> and <strong>Secret Access Key</strong> saved earlier.</li>
+<li>Name the service connection (e.g., <code>ADO-ConnectivityToolkit-AWS</code>).</li>
+<li><strong>Create the <code>azure-pipelines.yml</code> File</strong>: ( <a href="https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=%2Fazure-pipelines.yml">You can also find it in this link </a>)</li>
+</ol>
+<p>In the root directory of your repository, create the file <code>azure-pipelines.yml</code>.</p>
+<p>```yaml
+   trigger:
+   - main</p>
+<p>pool:
+     vmImage: ubuntu-latest</p>
+<p>steps:</p>
+<ul>
+<li>
+<p>task: AzureCLI@2
+     inputs:
+       addSpnToEnvironment: true
+       azureSubscription: 'ADO-ConnectivityToolkit-AWS' # service connection name
+       scriptType: bash
+       scriptLocation: inlineScript
+       inlineScript: |
+         # Retrieve the ID_TOKEN using 'ADO-ConnectivityToolkit-AWS' service connection to Azure App and set it as WEB_IDENTITY_TOKEN to be used in step 2
+         echo "##vso[task.setvariable variable=WEB_IDENTITY_TOKEN]${idToken}"</p>
+</li>
+<li>
+<p>task: AWSShellScript@1
+     displayName: 'second-step-after-Azure-Cli'
+     inputs:
+       regionName: 'eu-central-1'
+       scriptType: inline
+       inlineScript: |
+         # assume the role using with web identity
+         CREDS=$( aws sts assume-role-with-web-identity --role-arn "arn:aws:iam::238974323615:role/ado-ADO-ConnectivityToolkit-AWS-Role" --role-session-name "ADO-ConnectivityToolkit-AWS-PIPELINE" --web-identity-token "${WEB_IDENTITY_TOKEN}" --duration-seconds 3600 );
+         export AWS_ACCESS_KEY_ID=$(echo $CREDS | jq -r '.Credentials''.AccessKeyId');
+         export AWS_SECRET_ACCESS_KEY=$(echo $CREDS | jq -r '.Credentials''.SecretAccessKey');
+         export AWS_SESSION_TOKEN=$(echo $CREDS | jq -r '.Credentials''.SessionToken');
+         echo "##vso[task.setvariable variable=AWS_ACCESS_KEY_ID]${AWS_ACCESS_KEY_ID}";
+         echo "##vso[task.setvariable variable=AWS_SECRET_ACCESS_KEY]${AWS_SECRET_ACCESS_KEY}";
+         echo "##vso[task.setvariable variable=AWS_SESSION_TOKEN]${AWS_SESSION_TOKEN}";
+         aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com</p>
+</li>
+</ul>
+<p># build container images with docker commands
+   - task: Bash@3
+     displayName: 'Build and push docker image'
+     inputs:
+       targetType: 'inline'
+       script: |
+         gulp build
+         # set common vars
+         aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com
+         aws ecr list-images --repository-name connectivitytools --region eu-central-1</p>
+<pre><code>     image="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools"
+     docker buildx create --driver=docker-container --name=container-builder
 
-services:
-  mysql:
-    image: mysql:5.7.42
-    platform: linux/amd64
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: giga
-      MYSQL_USER: giga
-      MYSQL_PASSWORD: LbceQM0NE6ZuhW57MExFl6N6b32BCvbG
-    ports:
-      - &quot;3306:3306&quot;
-    volumes:
-      - mysql-data:/var/lib/mysql
-    networks:
-      - app-network
-  nginx:
-    build:
-      context: ./dist
-      dockerfile: Dockerfile 
-    depends_on:
-      - api-frontend2
-    ports:
-      - &quot;8000:8000&quot;  
-    networks:
-      - app-network
+     # build giga image
+     imageTag=giga
+     newimage="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools/${imageTag}"
+     cacheTag=cache-${imageTag}
+     cd ./dist
+     docker build          --cache-to=type=registry,ref=${newimage}:${cacheTag},mode=max,image-manifest=true,oci-mediatypes=true          --cache-from=type=registry,ref=${newimage}:${cacheTag}          --builder container-builder          -t ${newimage}:${imageTag}-build-$(Build.BuildId)          -t ${newimage}:${imageTag}          -t ${newimage}:dev          --push          -f Dockerfile.aws          --progress=plain          ./
+     docker image ls
+     aws ecr list-images --repository-name connectivitytools --region eu-central-1
 
-  api-frontend2:
-    build:
-      context: ./server/
-      dockerfile: Dockerfile.web
-   # image: api-frontend2
-    ports:
-      - &quot;8080:80&quot;
-    depends_on:
-      - api-backend
-    networks:
-      - app-network
+     cd ../server
 
-  api-backend:
-    build:
-      context: ./server/
-      dockerfile: Dockerfile.calc
-    depends_on:
-      - rabbitmq
-    networks:
-      - app-network
+     # build giga-api image
+     imageTag=giga-api
+     newimage="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools/${imageTag}"
+     cacheTag=cache-${imageTag}
+     docker build          --cache-to type=registry,ref=${newimage}:${cacheTag},mode=max,image-manifest=true,oci-mediatypes=true          --cache-from type=registry,ref=${newimage}:${cacheTag}          --builder container-builder          -t ${newimage}:${imageTag}-build-$(Build.BuildId)          -t ${newimage}:${imageTag}          -t ${newimage}:dev          --push          -f Dockerfile.web          --progress=plain          ./
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    ports:
-      - &quot;5672:5672&quot;
-      - &quot;15672:15672&quot;
-    volumes:
-      - ./rabbitmq_data:/var/lib/rabbitmq
-    environment:
-      - RABBITMQ_DEFAULT_USER=user
-      - RABBITMQ_DEFAULT_PASS=password
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
-
-volumes:
-  mysql-data:
+     # build giga-calc-worker image
+     imageTag=giga-calc-worker
+     newimage="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools/${imageTag}"
+     cacheTag=cache-${imageTag}
+     docker build          --cache-to type=registry,ref=${newimage}:${cacheTag},mode=max,image-manifest=true,oci-mediatypes=true          --cache-from type=registry,ref=${newimage}:${cacheTag}          --builder container-builder          -t ${newimage}:${imageTag}-build-$(Build.BuildId)          -t ${newimage}:${imageTag}          -t ${newimage}:dev          --push          -f Dockerfile.calc          --progress=plain          ./
 </code></pre>
-<p><strong>Authenticate with AWS</strong> :</p>
 <ul>
-<li>Azure DevOps authenticates with AWS using the <code>AWSShellScript</code> task and assumes the necessary IAM role.</li>
+<li>task: AWSShellScript@1
+     displayName: 'ECR'
+     inputs:
+       regionName: 'eu-central-1'
+       scriptType: inline
+       inlineScript: |
+         aws ecr list-images --repository-name connectivitytools --region eu-central-1
+         aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com
+   ```</li>
 </ul>
-<p><strong>Push the Image to ECR</strong> :</p>
+<h2 id="step-3-push-the-pipeline-to-github">Step 3: Push the Pipeline to GitHub<a class="headerlink" href="#step-3-push-the-pipeline-to-github" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The image is tagged with the appropriate name and pushed to the specified ECR repository.</li>
+<li>Add the <code>azure-pipelines.yml</code> file to the root of your project repository.</li>
+<li>Push the changes to your GitHub repository.</li>
 </ul>
-<p><strong>Deploy the Image</strong> :</p>
-<ul>
-<li>Depending on your setup, you can deploy the image manually or automate this step using an additional pipeline or service such as AWS CodeDeploy or ECS.</li>
-</ul>
+<h2 id="step-4-run-the-pipeline">Step 4: Run the Pipeline<a class="headerlink" href="#step-4-run-the-pipeline" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Trigger the Pipeline</strong>:</p>
+</li>
+<li>
+<p>Navigate to <strong>Pipelines</strong> in Azure DevOps and click <strong>Run Pipeline</strong>.</p>
+</li>
+<li>Ensure the pipeline runs on the latest <code>main</code> branch and starts building and pushing Docker images to AWS ECR.</li>
+<li>
+<p><strong>Monitor Progress</strong>:</p>
+</li>
+<li>
+<p>Watch the logs in Azure DevOps to ensure the pipeline completes successfully.</p>
+</li>
+<li>Confirm that the Docker images have been pushed to AWS ECR by checking the AWS Management Console under <strong>ECR</strong>.</li>
+</ol>
+<h2 id="step-5-verify-in-aws-ecr">Step 5: Verify in AWS ECR<a class="headerlink" href="#step-5-verify-in-aws-ecr" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Login to AWS</strong>:</li>
+<li>Open the AWS Management Console and navigate to <strong>ECR</strong>.</li>
+<li>Ensure that the repository <code>connectivitytools</code> has the newly built Docker images tagged and available.</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>You have now successfully set up an Azure DevOps pipeline that builds Docker images and deploys them to AWS ECR. This automated pipeline ensures that any changes pushed to your GitHub repository are automatically built and deployed to your AWS infrastructure.</p>
+<hr />
 
 
 
