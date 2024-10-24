@@ -12,7 +12,7 @@ This setup assumes you have AWS Setup, AzureDevops Setup,  and a repository ( Gi
 
 [VS CODE Extension to assist with pipeline deployment to AWS ](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools)
 
-## Prerequisites
+## Prerequisites.
 
 Before starting, ensure you have the following:
 

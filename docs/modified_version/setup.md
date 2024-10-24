@@ -1,10 +1,12 @@
 # Calculation Tools Setup Guide
 
-This guide will walk you through setting up the frontend, backend, and database for the Calculation Tools project. Follow the steps in sequence for a smooth installation.
+This guide will walk you through setting up the frontend, backend, and database for the Calculation Tools project. Follow the steps in sequence for a smooth installation. 
+
+This setup assumes you have **Php 7.4 +, python 3+ and node20+  installed successfully** from the previous prerequisites step
 
 ---
 
-### **What's Expected:**
+### **Project stack on modified version:**
 
 * **Frontend** : Based on Angular (old version).
 * **Backend** : PHP (using Slim Framework).
@@ -22,7 +24,13 @@ Use this video link to view how to set up the project: [Modified toolkit install
 
 Use this video to understand how Xampp server works for local setups  [Xampp guide and setup video](https://www.youtube.com/watch?v=GRqw0pBwewY)
 
----
+## **Downloading the project :**
+
+You can clone the modified branch by going to this link : [https://ITUINT@dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools]()  But its much easier for you if you just download the zip version . **Downloading saves you time and less setup** 
+
+![1729759050902](image/setup/1729759050902.png)
+
+After downloading, you can proceed with the steps below 
 
 ## **Step 1: Frontend Setup**
 
@@ -94,9 +102,13 @@ Use this video to understand how Xampp server works for local setups  [Xampp gui
   composer install --ignore-platform-reqs
   ```
 
-### **2.2 Install Backend Dependencies**
+### **2.2 Install Backend Dependencies** 
 
 * Navigate to the `server` directory (where the backend code resides) and install the required PHP dependencies using Composer:
+
+  ```
+  cd server
+  ```
 
   ```
   php composer.phar install --ignore-platform-reqs
@@ -174,7 +186,7 @@ start apache and mysql   [Use this guide for more help with XAMPP ](https://www.
 * After setting up the database and ensuring the connection is configured correctly, try logging into the system using the following credentials:
   * **Email** : `admin@itu.int`
   * **Password** : `AdminTools123!`
-* If the setup is correct, you should be able to log in successfully.
+* If the setup is correct, you should be able to log in successfully as **super admin**.
 
 ---
 

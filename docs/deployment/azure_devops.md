@@ -10,7 +10,7 @@ This setup assumes you only want to setup a pipeline between github repository a
 
 [AZURE pipeline VS CODE extension ](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines)
 
-## Prerequisites
+## Prerequisites.
 
 Before starting, ensure you have:
 
