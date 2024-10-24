@@ -8,7 +8,7 @@ The pipeline runs successfully  from the main branch [(View run tests here).](ht
 
 [Old calculation toolkit deployment via AWS CLI  Documentation ( Setup by original developer on how to deploy on aws- Reccomended )](https://ituint.sharepoint.com/:w:/r/sites/ConnectivityModelling-Internship/_layouts/15/Doc.aspx?sourcedoc=%7B05EDF5A0-768B-475E-9DCC-A40C6623B153%7D&file=Calculationtools%20AWS%20Deployment%20Guide.docx&action=default&mobileredirect=true)
 
-[Connect Azure DevOps Pipeline to AWS Cloud  ( VIDEO DEMO GUIDE - Reccomended)](https://www.youtube.com/watch?v=Vywmy5FFzoM)
+[Connect Azure DevOps Pipeline to AWS Cloud  ( VIDEO DEMO GUIDE )](https://www.youtube.com/watch?v=Vywmy5FFzoM)
 
 [Setting up a continous  development pipeline between github and AWS (VIDEO DEMO GUIDE )](https://youtu.be/biYVW1TMYAU?t=373)
 
@@ -142,7 +142,7 @@ Before starting, ensure you have the following:
 
 ## Step 4: Run the Pipeline :
 
-**Please note:** 
+**Please note:**
 
 The pipeline works on the main branch. The guide below is if you want to run from the modified branch
 

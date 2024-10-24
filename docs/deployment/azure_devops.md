@@ -1,14 +1,18 @@
-# Azure DevOps Setup
+# Github + Azure DevOps Setup
 
 This section details the Azure DevOps pipeline setup for the Calculation Tools. The setup works for both the old and modified versions of the project.
 
-This setup assumes you only want to setup a pipeline between github repository and AzureDevops
+This setup assumes you only want to setup a pipeline between a **github repository and AzureDevops pipeline.** 
 
-**Quick references :**
+Your project should be hosted on a github repository for simplicity 
 
- [GITHUB &amp; AZURE pipeline connection ( Video tutorial )](https://www.youtube.com/watch?v=AE4Q4A0ZVwA)
+All the codes can be managed directly on your localhost and Push to GitHub , or directly edit from github and commiting the changes will automatically trigger Azure DevOps Pipelines to process the update
 
-[AZURE pipeline VS CODE extension ](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines)
+**Quick references and additional Video learning guides :**
+
+ [GITHUB &amp; AZURE pipeline connection ( Video tutorial )](https://www.youtube.com/watch?v=AE4Q4A0ZVwA) 
+
+[AZURE pipeline VS CODE extension ](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines)(Reccomended extension to have )
 
 ## Prerequisites.
 
@@ -16,7 +20,7 @@ Before starting, ensure you have:
 
 1. **Azure DevOps Account**: For setting up the pipeline and managing CI/CD.
 2. **GitHub Repository**: Where your project and configuration files are hosted.
-3. **Docker**: Installed locally or on the build machine.
+3. **Docker**: Installed locally or on the build machine. ( Optional )
 
 ## Step 1: Access Your Azure DevOps Repository
 
@@ -64,10 +68,26 @@ The `docker-compose.yml` file you shared is also structured to define the servic
 
    - After setting up the pipeline, Azure DevOps will automatically trigger the pipeline when changes are made to the repository (specifically the `main` branch).
    - You can manually run the pipeline by navigating to **Pipelines** in Azure DevOps and clicking **Run Pipeline**.
+
+   A successful setup should look something like this [( Link )](https://dev.azure.com/ITUINT/ConnectivityToolkit/_build/results?buildId=2152&view=logs&j=12f1170f-54f2-53f3-20dd-22fc7dff55f9)
 2. **Monitor Progress**:
 
    - You can monitor the pipeline execution in real-time on the Azure DevOps dashboard.
    - Logs will be available for each step, showing the build and deployment stages of your pipeline.
+
+#### **Screenshots** 
+
+---
+
+
+
+[https://prnt.sc/wQfH3T1BgwKl ]()
+
+[https://prnt.sc/5Bk6X7kMIxnZ]()
+
+[https://prnt.sc/iQi9vtyQQKl1]()
+
+[https://prnt.sc/M5CuRUMx7tzP]()
 
 ## Conclusion
 
