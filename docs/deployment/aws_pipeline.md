@@ -55,7 +55,7 @@ Before starting, ensure you have the following:
 
    ```yaml
    trigger:
-   - main
+   - modified
 
    pool:
      vmImage: ubuntu-latest
