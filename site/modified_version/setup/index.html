@@ -465,9 +465,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#whats-expected" class="md-nav__link">
+  <a href="#project-stack-on-modified-version" class="md-nav__link">
     <span class="md-ellipsis">
-      What's Expected:
+      Project stack on modified version:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading the project :
     </span>
   </a>
   
@@ -1289,9 +1298,10 @@
 
 
 <h1 id="calculation-tools-setup-guide">Calculation Tools Setup Guide<a class="headerlink" href="#calculation-tools-setup-guide" title="Permanent link">&para;</a></h1>
-<p>This guide will walk you through setting up the frontend, backend, and database for the Calculation Tools project. Follow the steps in sequence for a smooth installation.</p>
+<p>This guide will walk you through setting up the frontend, backend, and database for the Calculation Tools project. Follow the steps in sequence for a smooth installation. </p>
+<p>This setup assumes you have <strong>Php 7.4 +, python 3+ and node20+  installed successfully</strong> from the previous prerequisites step</p>
 <hr />
-<h3 id="whats-expected"><strong>What's Expected:</strong><a class="headerlink" href="#whats-expected" title="Permanent link">&para;</a></h3>
+<h3 id="project-stack-on-modified-version"><strong>Project stack on modified version:</strong><a class="headerlink" href="#project-stack-on-modified-version" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Frontend</strong> : Based on Angular (old version).</li>
 <li><strong>Backend</strong> : PHP (using Slim Framework).</li>
@@ -1303,7 +1313,10 @@
 <p><strong>VIDEOS</strong></p>
 <p>Use this video link to view how to set up the project: <a href="https://ituint.sharepoint.com/:f:/r/sites/UIUXandFrontEnd/Shared%20Documents/General/Modified%20toolkit%20installation%20%26%20setup%20video?csf=1&amp;web=1&amp;e=fAnKNZ">Modified toolkit installation &amp; setup video</a></p>
 <p>Use this video to understand how Xampp server works for local setups  <a href="https://www.youtube.com/watch?v=GRqw0pBwewY">Xampp guide and setup video</a></p>
-<hr />
+<h2 id="downloading-the-project"><strong>Downloading the project :</strong><a class="headerlink" href="#downloading-the-project" title="Permanent link">&para;</a></h2>
+<p>You can clone the modified branch by going to this link : <a href="">https://ITUINT@dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools</a>  But its much easier for you if you just download the zip version . <strong>Downloading saves you time and less setup</strong> </p>
+<p><img alt="1729759050902" src="../image/setup/1729759050902.png" /></p>
+<p>After downloading, you can proceed with the steps below </p>
 <h2 id="step-1-frontend-setup"><strong>Step 1: Frontend Setup</strong><a class="headerlink" href="#step-1-frontend-setup" title="Permanent link">&para;</a></h2>
 <h3 id="11-install-nodejs-and-npm"><strong>1.1 Install Node.js and NPM</strong><a class="headerlink" href="#11-install-nodejs-and-npm" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1353,6 +1366,7 @@
 <ul>
 <li>Navigate to the <code>server</code> directory (where the backend code resides) and install the required PHP dependencies using Composer:</li>
 </ul>
+<p><code>cd server</code></p>
 <p><code>php composer.phar install --ignore-platform-reqs</code></p>
 <h3 id="23-check-backend-configuration"><strong>2.3 Check Backend Configuration</strong><a class="headerlink" href="#23-check-backend-configuration" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1414,7 +1428,7 @@ start apache and mysql   <a href="https://www.youtube.com/watch?v=2ynKAAt1G4Y">U
 <li>After setting up the database and ensuring the connection is configured correctly, try logging into the system using the following credentials:</li>
 <li><strong>Email</strong> : <code>admin@itu.int</code></li>
 <li><strong>Password</strong> : <code>AdminTools123!</code></li>
-<li>If the setup is correct, you should be able to log in successfully.</li>
+<li>If the setup is correct, you should be able to log in successfully as <strong>super admin</strong>.</li>
 </ul>
 <hr />
 <h2 id="step-5-final-checks"><strong>Step 5: Final Checks</strong><a class="headerlink" href="#step-5-final-checks" title="Permanent link">&para;</a></h2>

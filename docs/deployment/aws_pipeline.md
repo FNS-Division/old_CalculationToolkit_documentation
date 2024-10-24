@@ -2,15 +2,17 @@ This section provides details on deploying the Calculation Tools to AWS using th
 
 This setup assumes you have AWS Setup, AzureDevops Setup,  and a repository ( Github repository or azure repository)
 
-**Quick references :**
+The pipeline runs successfully  from the main branch [(View run tests here).](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=/azure-pipelines.yml&version=GBmain&_a=history) This guide is to setup  from a modified branch
 
-[Old calculation toolkit deployment via AWS CLI  Documentation ](https://ituint.sharepoint.com/:w:/r/sites/ConnectivityModelling-Internship/_layouts/15/Doc.aspx?sourcedoc=%7B05EDF5A0-768B-475E-9DCC-A40C6623B153%7D&file=Calculationtools%20AWS%20Deployment%20Guide.docx&action=default&mobileredirect=true)
+**Quick references and additional Video learning guides :**
 
-[Calculation Tools to AWS using the pipeline configured in Azure DevOps. ( VIDEO DEMO) )](https://www.youtube.com/watch?v=Vywmy5FFzoM)
+[Old calculation toolkit deployment via AWS CLI  Documentation ( Setup by original developer on how to deploy on aws- Reccomended )](https://ituint.sharepoint.com/:w:/r/sites/ConnectivityModelling-Internship/_layouts/15/Doc.aspx?sourcedoc=%7B05EDF5A0-768B-475E-9DCC-A40C6623B153%7D&file=Calculationtools%20AWS%20Deployment%20Guide.docx&action=default&mobileredirect=true)
 
-[Setting up development pipeline between github and AWS (VIDEO DEMO )](https://youtu.be/biYVW1TMYAU?t=373)
+[Connect Azure DevOps Pipeline to AWS Cloud  ( VIDEO DEMO GUIDE - Reccomended)](https://www.youtube.com/watch?v=Vywmy5FFzoM)
 
-[VS CODE Extension to assist with pipeline deployment to AWS ](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools)
+[Setting up a continous  development pipeline between github and AWS (VIDEO DEMO GUIDE )](https://youtu.be/biYVW1TMYAU?t=373)
+
+[VS CODE Extension to assist with pipeline deployment to AWS (Reccomended  )](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools) - Requires Admin rights
 
 ## Prerequisites.
 
@@ -46,9 +48,10 @@ Before starting, ensure you have the following:
    - Click **New Service Connection** and choose **AWS**.
    - Provide the **AWS Access Key** and **Secret Access Key** saved earlier.
    - Name the service connection (e.g., `ADO-ConnectivityToolkit-AWS`).
-2. **Create the `azure-pipelines.yml` File**: ( [You can also find it in this link ](https://dev.azure.com/ITUINT/ConnectivityToolkit/_git/calculation-tools?path=%2Fazure-pipelines.yml))
+2. ### **Create the `azure-pipelines.yml` File**: ( [You can also find it in this link ](https://dev.azure.com/ITUINT/ConnectivityToolkit/_apps/hub/ms.vss-build-web.ci-designer-hub?pipelineId=79&branch=modified))
 
    In the root directory of your repository, create the file `azure-pipelines.yml`.
+
 
    ```yaml
    trigger:
@@ -132,17 +135,21 @@ Before starting, ensure you have the following:
          aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com
    ```
 
-## Step 3: Push the Pipeline to GitHub
+## Step 3: Push the Pipeline to GitHub/Azuredevops
 
 - Add the `azure-pipelines.yml` file to the root of your project repository.
-- Push the changes to your GitHub repository.
+- Push the changes to your GitHub / Azure devops repository.
 
-## Step 4: Run the Pipeline
+## Step 4: Run the Pipeline :
+
+**Please note:** 
+
+The pipeline works on the main branch. The guide below is if you want to run from the modified branch
 
 1. **Trigger the Pipeline**:
 
    - Navigate to **Pipelines** in Azure DevOps and click **Run Pipeline**.
-   - Ensure the pipeline runs on the latest `main` branch and starts building and pushing Docker images to AWS ECR.
+   - Ensure the pipeline runs on the latest `modified` branch and starts building and pushing Docker images to AWS ECR.
 2. **Monitor Progress**:
 
    - Watch the logs in Azure DevOps to ensure the pipeline completes successfully.
