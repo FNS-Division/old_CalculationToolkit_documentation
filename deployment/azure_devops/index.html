@@ -1171,11 +1171,11 @@
 
 <h1 id="github-azure-devops-setup">Github + Azure DevOps Setup<a class="headerlink" href="#github-azure-devops-setup" title="Permanent link">&para;</a></h1>
 <p>This section details the Azure DevOps pipeline setup for the Calculation Tools. The setup works for both the old and modified versions of the project.</p>
-<p>This setup assumes you only want to setup a pipeline between a <strong>github repository and AzureDevops pipeline.</strong> </p>
-<p>Your project should be hosted on a github repository for simplicity </p>
+<p>This setup assumes you only want to setup a pipeline between a <strong>github or Azure repository and AzureDevops pipeline.</strong></p>
+<p>Your project should be hosted on a github / azure repository for simplicity</p>
 <p>All the codes can be managed directly on your localhost and Push to GitHub , or directly edit from github and commiting the changes will automatically trigger Azure DevOps Pipelines to process the update</p>
 <p><strong>Quick references and additional Video learning guides :</strong></p>
-<p><a href="https://www.youtube.com/watch?v=AE4Q4A0ZVwA">GITHUB &amp; AZURE pipeline connection ( Video tutorial )</a> </p>
+<p><a href="https://www.youtube.com/watch?v=AE4Q4A0ZVwA">GITHUB &amp; AZURE pipeline connection ( Video tutorial )</a></p>
 <p><a href="https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines">AZURE pipeline VS CODE extension </a>(Reccomended extension to have )</p>
 <h2 id="prerequisites">Prerequisites.<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before starting, ensure you have:</p>
@@ -1197,6 +1197,7 @@
 <li>Ensure that your project structure is correctly aligned so Azure DevOps can detect the files for automated builds.</li>
 </ol>
 <h2 id="step-2-azure-devops-pipeline-setup">Step 2: Azure DevOps Pipeline Setup<a class="headerlink" href="#step-2-azure-devops-pipeline-setup" title="Permanent link">&para;</a></h2>
+<p>Ensure you have <strong>azure-pipeline.yml</strong> in your files. If not, <a href="https://ituint.sharepoint.com/:w:/r/sites/UIUXandFrontEnd/_layouts/15/Doc.aspx?sourcedoc=%7BB8FE9875-9103-4FC4-B289-463EBC751C7B%7D&amp;file=Azure%20devops%20setup.docx&amp;action=default&amp;mobileredirect=true">check this file and copy the pipeline here</a></p>
 <ol>
 <li>
 <p><strong>Go to Pipelines</strong>:</p>
@@ -1257,7 +1258,7 @@
 <p><a href="">https://prnt.sc/iQi9vtyQQKl1</a></p>
 <p><a href="">https://prnt.sc/M5CuRUMx7tzP</a></p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>By following these steps, you’ve now successfully connected your GitHub repository to Azure DevOps and set up a CI/CD pipeline using your <code>azure-pipelines.yml</code> and <code>docker-compose.yml</code> files. Depending on the setup, Each time you push new changes to the <code>main or modified</code> branch, the pipeline will automatically build and deploy your services using Docker.</p>
+<p>By following these steps, you’ve now successfully connected your GitHub repository to Azure DevOps and set up a CI/CD pipeline using your <code>azure-pipelines.yml</code> and <code>docker-compose.yml</code> files. Depending on the setup, Each time you push new changes to the <code>modified</code> branch, the pipeline will automatically build and deploy your services using Docker.</p>
 
 
 
