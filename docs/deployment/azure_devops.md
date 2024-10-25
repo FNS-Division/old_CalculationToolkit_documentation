@@ -2,15 +2,15 @@
 
 This section details the Azure DevOps pipeline setup for the Calculation Tools. The setup works for both the old and modified versions of the project.
 
-This setup assumes you only want to setup a pipeline between a **github repository and AzureDevops pipeline.** 
+This setup assumes you only want to setup a pipeline between a **github or Azure repository and AzureDevops pipeline.**
 
-Your project should be hosted on a github repository for simplicity 
+Your project should be hosted on a github / azure repository for simplicity
 
 All the codes can be managed directly on your localhost and Push to GitHub , or directly edit from github and commiting the changes will automatically trigger Azure DevOps Pipelines to process the update
 
 **Quick references and additional Video learning guides :**
 
- [GITHUB &amp; AZURE pipeline connection ( Video tutorial )](https://www.youtube.com/watch?v=AE4Q4A0ZVwA) 
+ [GITHUB &amp; AZURE pipeline connection ( Video tutorial )](https://www.youtube.com/watch?v=AE4Q4A0ZVwA)
 
 [AZURE pipeline VS CODE extension ](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines)(Reccomended extension to have )
 
@@ -32,6 +32,8 @@ Before starting, ensure you have:
    - Ensure that your project structure is correctly aligned so Azure DevOps can detect the files for automated builds.
 
 ## Step 2: Azure DevOps Pipeline Setup
+
+Ensure you have **azure-pipeline.yml** in your files. If not, [check this file and copy the pipeline here](https://ituint.sharepoint.com/:w:/r/sites/UIUXandFrontEnd/_layouts/15/Doc.aspx?sourcedoc=%7BB8FE9875-9103-4FC4-B289-463EBC751C7B%7D&file=Azure%20devops%20setup.docx&action=default&mobileredirect=true)
 
 1. **Go to Pipelines**:
 
@@ -75,11 +77,9 @@ The `docker-compose.yml` file you shared is also structured to define the servic
    - You can monitor the pipeline execution in real-time on the Azure DevOps dashboard.
    - Logs will be available for each step, showing the build and deployment stages of your pipeline.
 
-#### **Screenshots** 
+#### **Screenshots**
 
 ---
-
-
 
 [https://prnt.sc/wQfH3T1BgwKl ]()
 
@@ -91,4 +91,4 @@ The `docker-compose.yml` file you shared is also structured to define the servic
 
 ## Conclusion
 
-By following these steps, you’ve now successfully connected your GitHub repository to Azure DevOps and set up a CI/CD pipeline using your `azure-pipelines.yml` and `docker-compose.yml` files. Depending on the setup, Each time you push new changes to the `main or modified` branch, the pipeline will automatically build and deploy your services using Docker.
+By following these steps, you’ve now successfully connected your GitHub repository to Azure DevOps and set up a CI/CD pipeline using your `azure-pipelines.yml` and `docker-compose.yml` files. Depending on the setup, Each time you push new changes to the `modified` branch, the pipeline will automatically build and deploy your services using Docker.

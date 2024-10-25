@@ -663,9 +663,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-the-azure-pipelinesyml-file-you-can-also-find-it-in-this-link" class="md-nav__link">
+  <a href="#create-the-azure-pipelinesyml-file-you-can-also-find-it-in-this-link-this-is-the-azure-pipeline-from-the-main-branch-but-you-can-copy-it-to-the-modified-branch" class="md-nav__link">
     <span class="md-ellipsis">
-      Create the azure-pipelines.yml File: ( You can also find it in this link )
+      Create the azure-pipelines.yml File: ( You can also find it in this link: This is the azure-pipeline from the main branch, but you can copy it to the modified branch )
     </span>
   </a>
   
@@ -1220,93 +1220,10 @@
 <li>Provide the <strong>AWS Access Key</strong> and <strong>Secret Access Key</strong> saved earlier.</li>
 <li>Name the service connection (e.g., <code>ADO-ConnectivityToolkit-AWS</code>).</li>
 <li>
-<h3 id="create-the-azure-pipelinesyml-file-you-can-also-find-it-in-this-link"><strong>Create the <code>azure-pipelines.yml</code> File</strong>: ( <a href="https://dev.azure.com/ITUINT/ConnectivityToolkit/_apps/hub/ms.vss-build-web.ci-designer-hub?pipelineId=79&amp;branch=modified">You can also find it in this link </a>)<a class="headerlink" href="#create-the-azure-pipelinesyml-file-you-can-also-find-it-in-this-link" title="Permanent link">&para;</a></h3>
+<h3 id="create-the-azure-pipelinesyml-file-you-can-also-find-it-in-this-link-this-is-the-azure-pipeline-from-the-main-branch-but-you-can-copy-it-to-the-modified-branch"><strong>Create the <code>azure-pipelines.yml</code> File</strong>: ( <a href="https://dev.azure.com/ITUINT/ConnectivityToolkit/_apps/hub/ms.vss-build-web.ci-designer-hub?pipelineId=79&amp;branch=main">You can also find it in this link: This is the azure-pipeline from the main branch, but you can copy it to the modified branch  </a>)<a class="headerlink" href="#create-the-azure-pipelinesyml-file-you-can-also-find-it-in-this-link-this-is-the-azure-pipeline-from-the-main-branch-but-you-can-copy-it-to-the-modified-branch" title="Permanent link">&para;</a></h3>
 </li>
 </ol>
 <p>In the root directory of your repository, create the file <code>azure-pipelines.yml</code>.</p>
-<p>```yaml
-   trigger:
-   - modified</p>
-<p>pool:
-     vmImage: ubuntu-latest</p>
-<p>steps:</p>
-<ul>
-<li>
-<p>task: AzureCLI@2
-     inputs:
-       addSpnToEnvironment: true
-       azureSubscription: 'ADO-ConnectivityToolkit-AWS' # service connection name
-       scriptType: bash
-       scriptLocation: inlineScript
-       inlineScript: |
-         # Retrieve the ID_TOKEN using 'ADO-ConnectivityToolkit-AWS' service connection to Azure App and set it as WEB_IDENTITY_TOKEN to be used in step 2
-         echo "##vso[task.setvariable variable=WEB_IDENTITY_TOKEN]${idToken}"</p>
-</li>
-<li>
-<p>task: AWSShellScript@1
-     displayName: 'second-step-after-Azure-Cli'
-     inputs:
-       regionName: 'eu-central-1'
-       scriptType: inline
-       inlineScript: |
-         # assume the role using with web identity
-         CREDS=$( aws sts assume-role-with-web-identity --role-arn "arn:aws:iam::238974323615:role/ado-ADO-ConnectivityToolkit-AWS-Role" --role-session-name "ADO-ConnectivityToolkit-AWS-PIPELINE" --web-identity-token "${WEB_IDENTITY_TOKEN}" --duration-seconds 3600 );
-         export AWS_ACCESS_KEY_ID=$(echo $CREDS | jq -r '.Credentials''.AccessKeyId');
-         export AWS_SECRET_ACCESS_KEY=$(echo $CREDS | jq -r '.Credentials''.SecretAccessKey');
-         export AWS_SESSION_TOKEN=$(echo $CREDS | jq -r '.Credentials''.SessionToken');
-         echo "##vso[task.setvariable variable=AWS_ACCESS_KEY_ID]${AWS_ACCESS_KEY_ID}";
-         echo "##vso[task.setvariable variable=AWS_SECRET_ACCESS_KEY]${AWS_SECRET_ACCESS_KEY}";
-         echo "##vso[task.setvariable variable=AWS_SESSION_TOKEN]${AWS_SESSION_TOKEN}";
-         aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com</p>
-</li>
-</ul>
-<p># build container images with docker commands
-   - task: Bash@3
-     displayName: 'Build and push docker image'
-     inputs:
-       targetType: 'inline'
-       script: |
-         gulp build
-         # set common vars
-         aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com
-         aws ecr list-images --repository-name connectivitytools --region eu-central-1</p>
-<pre><code>     image="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools"
-     docker buildx create --driver=docker-container --name=container-builder
-
-     # build giga image
-     imageTag=giga
-     newimage="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools/${imageTag}"
-     cacheTag=cache-${imageTag}
-     cd ./dist
-     docker build          --cache-to=type=registry,ref=${newimage}:${cacheTag},mode=max,image-manifest=true,oci-mediatypes=true          --cache-from=type=registry,ref=${newimage}:${cacheTag}          --builder container-builder          -t ${newimage}:${imageTag}-build-$(Build.BuildId)          -t ${newimage}:${imageTag}          -t ${newimage}:dev          --push          -f Dockerfile.aws          --progress=plain          ./
-     docker image ls
-     aws ecr list-images --repository-name connectivitytools --region eu-central-1
-
-     cd ../server
-
-     # build giga-api image
-     imageTag=giga-api
-     newimage="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools/${imageTag}"
-     cacheTag=cache-${imageTag}
-     docker build          --cache-to type=registry,ref=${newimage}:${cacheTag},mode=max,image-manifest=true,oci-mediatypes=true          --cache-from type=registry,ref=${newimage}:${cacheTag}          --builder container-builder          -t ${newimage}:${imageTag}-build-$(Build.BuildId)          -t ${newimage}:${imageTag}          -t ${newimage}:dev          --push          -f Dockerfile.web          --progress=plain          ./
-
-     # build giga-calc-worker image
-     imageTag=giga-calc-worker
-     newimage="238974323615.dkr.ecr.eu-central-1.amazonaws.com/connectivitytools/${imageTag}"
-     cacheTag=cache-${imageTag}
-     docker build          --cache-to type=registry,ref=${newimage}:${cacheTag},mode=max,image-manifest=true,oci-mediatypes=true          --cache-from type=registry,ref=${newimage}:${cacheTag}          --builder container-builder          -t ${newimage}:${imageTag}-build-$(Build.BuildId)          -t ${newimage}:${imageTag}          -t ${newimage}:dev          --push          -f Dockerfile.calc          --progress=plain          ./
-</code></pre>
-<ul>
-<li>task: AWSShellScript@1
-     displayName: 'ECR'
-     inputs:
-       regionName: 'eu-central-1'
-       scriptType: inline
-       inlineScript: |
-         aws ecr list-images --repository-name connectivitytools --region eu-central-1
-         aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 238974323615.dkr.ecr.eu-central-1.amazonaws.com
-   ```</li>
-</ul>
 <h2 id="step-3-push-the-pipeline-to-githubazuredevops">Step 3: Push the Pipeline to GitHub/Azuredevops<a class="headerlink" href="#step-3-push-the-pipeline-to-githubazuredevops" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add the <code>azure-pipelines.yml</code> file to the root of your project repository.</li>
