@@ -23,6 +23,8 @@ Before starting, ensure you have the following:
 3. **Docker**: Installed locally or in the build environment.
 4. **AWS CLI**: Installed and configured for AWS access.
 
+Guide to set this up: (https://ituint.sharepoint.com/:w:/r/sites/UIUXandFrontEnd/Shared%20Documents/General/Old%20Connectivity%20toolkit/Additionals/AWS%20SETUP.docx?d=wb2ec7e198d09499d9e574966665b2ad2&csf=1&web=1&e=yhla19 ) 
+
 ## Step 1: Create AWS IAM Role for Azure DevOps
 
 1. **Create an IAM User** in AWS:
