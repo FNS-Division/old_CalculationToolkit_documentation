@@ -28,6 +28,7 @@ nav:
       - Requirements: cloud/deployment_guide.md
       - Deploying on Azure: cloud/azure_deployment_guide.md
       - Deploying on AWS: cloud/aws_deployment_guide.md
+      - Docker Setups: cloud/docker.md 
   - Usage:
       - Usage Examples: usage/old_version.md
   - Maintenance & Troubleshooting:
