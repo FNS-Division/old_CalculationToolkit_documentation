@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://FNS-Division.github.io/calculation-tools_documentation/cloud/docker/">
       
       
+        <link rel="prev" href="../aws_deployment_guide/">
+      
+      
+        <link rel="next" href="../../usage/old_version/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Docker - Calculation Tools Documentation</title>
+        <title>Docker Setups - Calculation Tools Documentation</title>
       
     
     
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Docker Setups
             
           </span>
         </div>
@@ -612,17 +616,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -636,7 +642,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Cloud Deployment
@@ -701,6 +707,219 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker Setups
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Docker Setups
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-local-setup-on-your-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Local Setup on Your Computer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Local Setup on Your Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dockerizing-your-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Dockerizing Your Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Dockerizing Your Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Project Structure:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-composeyml-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.yml Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-common-docker-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Common Docker Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-testing-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testing Locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-deploying-on-aws-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Deploying on AWS for Production
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Deploying on AWS for Production">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-using-aws-ec2-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A: Using AWS EC2 + Docker Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option A: Using AWS EC2 + Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-steps-on-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Steps on EC2:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-aws-ecs-elastic-container-service-with-fargate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B: AWS ECS (Elastic Container Service) with Fargate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option B: AWS ECS (Elastic Container Service) with Fargate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Level Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-production-secrets-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Production Secrets &amp; Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prune-and-maintenance-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prune and Maintenance Commands
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1045,7 +1264,7 @@
   
 
 
-  <h1>Docker</h1>
+  <h1>Docker Setups</h1>
 
 <p>Below is a comprehensive, <strong>guide</strong> on how to set up Docker for <strong>local development</strong> (on your computer) and how to run Docker in  <strong>production on AWS</strong> . It covers installation, basic usage, and a few different AWS deployment approaches so you can pick what best fits your project.</p>
 <hr />

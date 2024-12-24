@@ -127,8 +127,6 @@ Below are a few common ways to run Dockerized apps on AWS. Choose the approach t
 3. Copy your project to the EC2 instance (via Git clone, SCP, etc.).
 4. Run **docker-compose up -d** on the EC2 to start your containers.
 
- **Pros** : Straightforward if you’re already using Docker Compose.
- **Cons** : You must manage your own servers (scaling, updates, etc.).
 
 #### Example Steps on EC2:
 
@@ -152,8 +150,6 @@ ECS + Fargate is a **serverless** container hosting solution. You don’t manage
 3. **Create a Task Definition** in ECS that references your container image(s) from ECR.
 4. **Create a Service** in ECS to run tasks (containers) with load balancing or auto-scaling if needed.
 
- **Pros** : Minimal server management, auto-scaling, easy AWS integration.
- **Cons** : Steeper learning curve; must adapt your Docker Compose or ECS task definitions.
 
 #### High-Level Steps
 
