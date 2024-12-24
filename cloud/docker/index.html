@@ -1377,8 +1377,6 @@
 <li>Copy your project to the EC2 instance (via Git clone, SCP, etc.).</li>
 <li>Run <strong>docker-compose up -d</strong> on the EC2 to start your containers.</li>
 </ol>
-<p><strong>Pros</strong> : Straightforward if you’re already using Docker Compose.
- <strong>Cons</strong> : You must manage your own servers (scaling, updates, etc.).</p>
 <h4 id="example-steps-on-ec2">Example Steps on EC2:<a class="headerlink" href="#example-steps-on-ec2" title="Permanent link">&para;</a></h4>
 <ol>
 <li><strong>SSH</strong> into EC2:
@@ -1399,8 +1397,6 @@
 <li><strong>Create a Task Definition</strong> in ECS that references your container image(s) from ECR.</li>
 <li><strong>Create a Service</strong> in ECS to run tasks (containers) with load balancing or auto-scaling if needed.</li>
 </ol>
-<p><strong>Pros</strong> : Minimal server management, auto-scaling, easy AWS integration.
- <strong>Cons</strong> : Steeper learning curve; must adapt your Docker Compose or ECS task definitions.</p>
 <h4 id="high-level-steps">High-Level Steps<a class="headerlink" href="#high-level-steps" title="Permanent link">&para;</a></h4>
 <ol>
 <li><strong>Build</strong> container images locally:
